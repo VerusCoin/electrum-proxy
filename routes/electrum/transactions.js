@@ -51,7 +51,7 @@ module.exports = (api) => {
         } else {
           const MAX_TX = pagination ? maxHistoryDepth : (maxlength && Number(maxlength) >= 10 && Number(maxlength) <= 100 ? maxlength : 10);
 
-          const json = await ecl.blockchainAddressGetHistory(address);
+          let json = await ecl.blockchainAddressGetHistory(address);
 
           if (json.code) {
 

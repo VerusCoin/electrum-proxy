@@ -24,7 +24,7 @@ const getProtocolVersion = async (_ecl) => {
   if (serverData &&
       JSON.stringify(serverData).indexOf('server.version already sent') > -1) {
     log('server version already sent');
-    resolve('sent');
+    return "sent";
   }
 
   let serverVersion = 0;
@@ -45,7 +45,7 @@ const getProtocolVersion = async (_ecl) => {
 
   if (serverData.hasOwnProperty('code') &&
       serverData.code === '-777') {
-    resolve(serverData);
+    return serverData;
   }
 
   log(`ecl ${`${_ecl.host}:${_ecl.port}:${_ecl.proto}`} protocol version: ${protocolVersion}`);

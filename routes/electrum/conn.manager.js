@@ -19,7 +19,7 @@ const log = (data) => {
 const getProtocolVersion = async (_ecl) => {
   let protocolVersion;
   
-  const serverData = await _ecl.serverVersion('ElectrumProxy');
+  const serverData = await _ecl.serverVersion('VerusElectrumProxy');
 
   if (serverData &&
       JSON.stringify(serverData).indexOf('server.version already sent') > -1) {

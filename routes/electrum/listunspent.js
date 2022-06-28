@@ -14,7 +14,7 @@ module.exports = (api) => {
         res.set({ 'Content-Type': 'application/json' });
         res.end(JSON.stringify(successObj));
       } else {
-        const verbose = verbose && verbose === 'true' ? true : false;
+        const isVerbose = verbose && verbose === 'true' ? true : false;
         
         if (eprotocol &&
             Number(eprotocol) > 0) {
@@ -23,7 +23,7 @@ module.exports = (api) => {
 
         const json = await ecl.blockchainAddressListunspent(address);
 
-        if (!verbose) {              
+        if (!isVerbose) {              
           const successObj = {
             msg: json.code ? 'error' : 'success',
             result: json,
